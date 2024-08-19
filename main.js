@@ -22,8 +22,9 @@ function fillTasksOnThePage() {
   // Clear the current tasks displayed on the page
   document.getElementById("tasks").innerHTML = "";
 
+  let index = 0;
   // Loop through each task in the tasks array
-  for (task of tasks) {
+  for (let task of tasks) {
     // Create the HTML content for each task
     let content = `
           <!-- Task -->
@@ -37,7 +38,7 @@ function fillTasksOnThePage() {
                                   check
                             </span>
                       </button>
-                      <button class="btn-style"><span class="material-symbols-outlined">
+                      <button onclick="deleteTask(${index})" class="btn-style"><span class="material-symbols-outlined">
                                   delete
                             </span></button>
                 </div>
@@ -54,6 +55,7 @@ function fillTasksOnThePage() {
           <!-- End task -->`;
     // Append the task content to the tasks container
     document.getElementById("tasks").innerHTML += content;
+    index++;
   }
 }
 
@@ -87,3 +89,13 @@ document.getElementById("add-btn").addEventListener("click", function () {
   // Refresh the tasks displayed on the page
   fillTasksOnThePage();
 });
+
+// Delete task
+function deleteTask(index) {
+  let task = tasks[index];
+  let isConfirmed = confirm("Delete this task: " + task.title);
+  if (isConfirmed) {
+    tasks.splice(index, 1);
+    fillTasksOnThePage();
+  }
+}

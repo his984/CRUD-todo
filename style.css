@@ -83,6 +83,8 @@ h1 {
   border-bottom: 1px solid white;
   border-radius: 10px;
   margin: 5px 0;
+}
+.task:hover {
   box-shadow: #2e073f 0px 0px 10px;
 }
 /* task-details */
