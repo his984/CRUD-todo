@@ -30,15 +30,15 @@ function fillTasksOnThePage() {
           <!-- Task -->
           <div class="task">
                 <div class="task-actions">
-                      <button class="btn-style"><span class="material-symbols-outlined">
+                      <button onclick="editTask(${index})" style="background-color: #3771e0;" class="btn-style"><span class="material-symbols-outlined">
                                   edit
                             </span></button>
-                      <button class="btn-style">
+                      <button style="background-color: green;"  class="btn-style">
                             <span class="material-symbols-outlined">
                                   check
                             </span>
                       </button>
-                      <button onclick="deleteTask(${index})" class="btn-style"><span class="material-symbols-outlined">
+                      <button  style="background-color: red;" onclick="deleteTask(${index})" class="btn-style"><span class="material-symbols-outlined">
                                   delete
                             </span></button>
                 </div>
@@ -98,4 +98,12 @@ function deleteTask(index) {
     tasks.splice(index, 1);
     fillTasksOnThePage();
   }
+}
+
+//  Edit task
+function editTask(index) {
+  let task = tasks[index];
+  let newTaskTitle = prompt("Add new name for task: ", task.title);
+  task.title = newTaskTitle;
+  fillTasksOnThePage();
 }
