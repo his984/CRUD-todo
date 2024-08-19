@@ -2,27 +2,48 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUD_Todo</title>
-  <link rel="stylesheet" href="/style.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>CRUD_Todo</title>
+      <link rel="stylesheet" href="/style.css">
+
 </head>
 
 <body>
-    <!-- Container -->
-    <div class="container">
-          <!-- Content -->
-          <div class="content">
-                  <!-- Header -->
-                  <div class="header">
-                        <h1>My Todo List</h1>
-                        <button class="add-btn">btn</button>
+
+      <!-- Content -->
+      <div class="todo-container">
+            <!-- Header -->
+            <div class="header">
+                  <h1>My Todo List</h1>
+                  <button class="btn-style add-btn">+</button>
+            </div>
+            <!-- End Header -->
+            <!----------------------------------------------------->
+            <!-- Todo Tasks-->
+            <div class="tasks">
+                  <!-- Task -->
+                  <div class="task">
+                        <div class="task-actions">
+                              <button class="btn-style">+</button>
+                              <button class="btn-style">+</button>
+                              <button class="btn-style">+</button>
+                        </div>
+                        <!--------------------------------->
+                        <div class="task-details">
+                              <h3>Read Book</h3>
+                              <span>Date</span>
+                        </div>
+                        <!--------------------------------->
                   </div>
-                  <!-- End Header -->
-          </div>
-          <!-- End Content -->
-    </div>
-    <!-- End Container -->
+                  <!-- End task -->
+                  <!--------------------------------->
+            </div>
+            <!-- End Tasks -->
+      </div>
+      <!-- End Content -->
+
 </body>
+<script src="/main.js"></script>
 
 </html>
