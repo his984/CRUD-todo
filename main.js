@@ -17,6 +17,19 @@ let tasks = [
   },
 ];
 
+// Get tasks from local storage or use the default tasks array
+function getTasksFromLocalStorage() {
+  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  if (tasks) {
+    return tasks;
+  } else {
+    return [];
+  }
+}
+
+// Get tasks from local storage or use the default tasks array
+tasks = getTasksFromLocalStorage();
+
 // Function to fill tasks on the page
 function fillTasksOnThePage() {
   // Clear the current tasks displayed on the page
@@ -98,6 +111,8 @@ document.getElementById("add-btn").addEventListener("click", function () {
 
   // Add the new task to the tasks array
   tasks.push(taskObj);
+  // Save the tasks array to the local storage
+  saveTasksToLocalStorage();
 
   // Refresh the tasks displayed on the page
   fillTasksOnThePage();
@@ -110,6 +125,8 @@ function deleteTask(index) {
   if (isConfirmed) {
     tasks.splice(index, 1);
     fillTasksOnThePage();
+    // Save the tasks array to the local storage
+    saveTasksToLocalStorage();
   }
 }
 
@@ -119,6 +136,8 @@ function editTask(index) {
   let newTaskTitle = prompt("Add new name for task: ", task.title);
   task.title = newTaskTitle;
   fillTasksOnThePage();
+  // Save the tasks array to the local storage
+  saveTasksToLocalStorage();
 }
 
 // Check task -  completeTask
@@ -131,4 +150,11 @@ function toggleTaskCompletion(index) {
   // }
   task.isDone = !task.isDone;
   fillTasksOnThePage();
+  // Save the tasks array to the local storage
+  saveTasksToLocalStorage();
+}
+
+// Storage Functionality
+function saveTasksToLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
