@@ -87,6 +87,11 @@ h1 {
 .task:hover {
   box-shadow: #2e073f 0px 0px 10px;
 }
+/* task-done */
+.task-done {
+  text-decoration: line-through;
+  background-color: rgb(112, 167, 167);
+}
 /* task-details */
 .task-details {
   position: absolute;

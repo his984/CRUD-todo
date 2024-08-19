@@ -8,7 +8,7 @@ let tasks = [
   {
     title: "Funny",
     date: "2024-11-04",
-    isDone: false,
+    isDone: true,
   },
   {
     title: "Happy",
@@ -28,16 +28,29 @@ function fillTasksOnThePage() {
     // Create the HTML content for each task
     let content = `
           <!-- Task -->
-          <div class="task">
+          <div class="task ${task.isDone ? "task-done" : ""}">
                 <div class="task-actions">
                       <button onclick="editTask(${index})" style="background-color: #3771e0;" class="btn-style"><span class="material-symbols-outlined">
                                   edit
                             </span></button>
-                      <button style="background-color: green;"  class="btn-style">
+                        ${
+                          task.isDone
+                            ? `
+                          <button onclick=" toggleTaskCompletion(${index})" style="background-color: green;"  class="btn-style">
+                            <span class="material-symbols-outlined">
+                                  cancel
+                            </span>
+                      </button>
+                          `
+                            : `
+                          <button onclick=" toggleTaskCompletion(${index})" style="background-color: #e1760b;"  class="btn-style">
                             <span class="material-symbols-outlined">
                                   check
                             </span>
                       </button>
+                      `
+                        }    
+                      
                       <button  style="background-color: red;" onclick="deleteTask(${index})" class="btn-style"><span class="material-symbols-outlined">
                                   delete
                             </span></button>
@@ -105,5 +118,17 @@ function editTask(index) {
   let task = tasks[index];
   let newTaskTitle = prompt("Add new name for task: ", task.title);
   task.title = newTaskTitle;
+  fillTasksOnThePage();
+}
+
+// Check task -  completeTask
+function toggleTaskCompletion(index) {
+  let task = tasks[index];
+  // if (task.isDone) {
+  //   task.isDone = false;
+  // } else {
+  //   task.isDone = true;
+  // }
+  task.isDone = !task.isDone;
   fillTasksOnThePage();
 }
