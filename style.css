@@ -59,7 +59,7 @@ h1 {
   height: 35px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 15px;
+  line-height: 0;
 }
 
 /* Tasks */
@@ -83,6 +83,7 @@ h1 {
   border-bottom: 1px solid white;
   border-radius: 10px;
   margin: 5px 0;
+  box-shadow: #2e073f 0px 0px 10px;
 }
 /* task-details */
 .task-details {
@@ -97,7 +98,7 @@ h1 {
 }
 /* h3 */
 h3,
-span {
+.date {
   margin: 8px;
 }
 
