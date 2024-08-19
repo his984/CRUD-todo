@@ -46,7 +46,7 @@ h1 {
 }
 
 /* Add-btn */
-.add-btn {
+#add-btn {
   margin-left: auto;
   margin-right: 15px;
 }
